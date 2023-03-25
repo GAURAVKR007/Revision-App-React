@@ -11,16 +11,19 @@ import Typography from '@mui/material/Typography';
 
 function Navbar(args) {
     return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <div>
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static" style={{backgroundColor: "#000000"}}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textAlign: "center",fontSize: "33px"}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textAlign: "center",fontSize: "33px",color: "#fff",fontWeight: "bold"}}>
             Revision-App
           </Typography>
         </Toolbar>
       </AppBar>
     </Box>
+    </div>
   );
+
 
 }
 

@@ -1,5 +1,5 @@
 .app-header {
-    background-color: aqua;
+    background-color: #202124;
     padding: 2% 7%;
     display: flex;
     align-items: center;
@@ -8,6 +8,11 @@
     padding-left: 25%;
     flex-wrap: wrap;
     
+}
+
+.entry-btn {
+    background-color: white;
+    color: black;
 }
 
 .entry-btn:active {
@@ -20,9 +25,14 @@
     color: lightgreen;
 }
 
+.form InputLabel, MenuItem {
+    color: whitesmoke !important;
+}
+
 .more-option {
     width: 250px;
     margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
+    color: #fff !important;
 }

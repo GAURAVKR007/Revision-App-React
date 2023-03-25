@@ -6,10 +6,12 @@
     margin: 0 auto;
     padding: 1rem;
     margin-bottom: 25px;
+    background: rgb(56,56,138);
+    background: linear-gradient(315deg, rgba(56,56,138,1) 0%, rgba(60,69,77,1) 10%, rgba(59,59,71,1) 24%, rgba(30,34,34,1) 43%, rgba(67,75,116,1) 66%, rgba(49,57,82,1) 84%, rgba(25,29,41,1) 91%, rgba(47,53,65,1) 94%);
   }
   
   .card-header {
-    background-color: #f0f0f0;
+    background-color: #ECF2FF;
     border-bottom: 1px solid #ccc;
     padding: 0.4rem;
     text-align: center;
@@ -18,10 +20,13 @@
 
   h3 {
     font-size: 1.4rem;
+    color: #FA7D09;
+    
   }
 
   p {
     font-size: 1.2rem;
+    color: whitesmoke;
     /* margin-top: 4px; */
   }
   

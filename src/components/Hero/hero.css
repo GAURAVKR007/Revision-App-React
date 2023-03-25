@@ -1,9 +1,10 @@
 .hero {
     padding: 2.7% 10%;
-    height: 73%;
+    height: 74%;
     overflow-y: scroll;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: #202124;
 }

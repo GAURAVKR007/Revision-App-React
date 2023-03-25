@@ -42,7 +42,7 @@ function AppHeader() {
       </Button>
 
       <Box sx={{ maxWidth: 270 }} className="more-option">
-        <FormControl fullWidth>
+        <FormControl style={{border : "2px solid white",backgroundColor:"white"}} fullWidth className="form">
           <InputLabel id="demo-simple-select-label">More Options</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -54,11 +54,11 @@ function AppHeader() {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Fetch All Revision</MenuItem>
+            <MenuItem value={10} style={{backgroundColor: "#fff"}}>Fetch All Revision</MenuItem>
             <MenuItem value={20} onClick={() => setVerifyModal([true,2])}>
               Clear All Entries
             </MenuItem>
-            <MenuItem value={30} onClick={() => setVerifyModal([true,1])}>Clear Today Revision Entry</MenuItem>
+            <MenuItem value={30} onClick={() => setVerifyModal([true,1])} >Clear Today Revision Entry</MenuItem>
           </Select>
         </FormControl>
       </Box>
