@@ -9,10 +9,55 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import EntryModel from "./EntryModel";
 
-
+import { db } from "../../firebase-config";
+import { collection,deleteDoc,getDocs,doc} from "firebase/firestore";
 
 function AppHeader() {
- 
+    const [revision, setRevision] = React.useState([]);
+  const revisionCollectionRef = collection(db, "revision");
+
+  React.useEffect(() => {
+    const getRevision = async () => {
+      const data = await getDocs(revisionCollectionRef);
+      setRevision(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getRevision();
+  }, []);
+
+  const deleteUser = async(id) => {
+    const userDoc = doc(db,"revision",id);
+    await deleteDoc(userDoc)
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  const deleteToday = () => {
+    console.log("today : "+today);
+    
+    revision.map((rev)=> {
+        console.log(rev.entryDate);
+        if(today == rev.entryDate){
+           
+            const id = rev.id;
+            deleteUser(id)
+        } 
+    })
+
+    setTimeout(()=>{
+        window.location.reload()
+    },700)
+  }
+
+  const deleteAll = () => {
+    revision.map((rev)=> {
+        const id = rev.id;
+        deleteUser(id)
+    })
+
+    window.location.reload()
+  }
+
   const [age, setAge] = React.useState("");
 
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -21,7 +66,6 @@ function AppHeader() {
     setAge(event.target.value);
   };
 
-  
   return (
     <div className="app-header">
       <Button
@@ -52,10 +96,10 @@ function AppHeader() {
               <em>None</em>
             </MenuItem>
             <MenuItem value={10}>Fetch All Revision</MenuItem>
-            <MenuItem value={20}>
-              Clear All Revision Entries before Today
+            <MenuItem value={20} onClick={deleteAll}>
+              Clear All Entries
             </MenuItem>
-            <MenuItem value={30}>Clear Today Revision Entry</MenuItem>
+            <MenuItem value={30} onClick={deleteToday}>Clear Today Revision Entry</MenuItem>
           </Select>
         </FormControl>
       </Box>
@@ -64,5 +108,4 @@ function AppHeader() {
     </div>
   );
 }
-
 export default AppHeader;

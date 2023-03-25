@@ -46,15 +46,15 @@ function Hero(props) {
             switch(i) {
                 case 0 : lastRevisioned = '3 days Ago'
                 break;
-                case 1 : lastRevisioned = '7 days Ago'
+                case 1 : lastRevisioned = '4 days Ago'
                 break;
-                case 2 : lastRevisioned = '14 days Ago'
+                case 2 : lastRevisioned = '8 days Ago'
                 break;
-                case 3 : lastRevisioned = '30 days Ago'
+                case 3 : lastRevisioned = '15 days Ago'
                 break;
-                case 4 : lastRevisioned = '45 days Ago'
+                case 4 : lastRevisioned = '15 days Ago'
                 break;
-                case 5 : lastRevisioned = '60 days Ago'
+                case 5 : lastRevisioned = '15 days Ago'
                 break;
                 default : console.log("Invalid");
             }
