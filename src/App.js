@@ -4,11 +4,12 @@ import AppHeader from './components/appHeader/AppHeader';
 import Hero from './components/Hero/Hero';
 
 function App() {
+
   return (
     <div className="App">
       <Navbar />
       <AppHeader />
-      <Hero />
+      <Hero/>
     </div>
   );
 }

@@ -9,14 +9,19 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import EntryModel from "./EntryModel";
 
+
+
 function AppHeader() {
+ 
   const [age, setAge] = React.useState("");
 
-  const [modalOpen,setModalOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  
   return (
     <div className="app-header">
       <Button
@@ -27,9 +32,10 @@ function AppHeader() {
           fontSize: "1.3rem",
         }}
         variant="contained"
-        onClick={()=> setModalOpen(true)}
+        onClick={() => setModalOpen(true)}
       >
-        <span className="material-symbols-outlined add-icon">note_add</span>ADD Entry
+        <span className="material-symbols-outlined add-icon">note_add</span>ADD
+        Entry
       </Button>
 
       <Box sx={{ maxWidth: 270 }} className="more-option">

@@ -3,11 +3,26 @@ import "./EntryModal.css";
 import { MdOutlineClose } from "react-icons/md";
 // import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
+import { db } from "../../firebase-config";
+import { collection, addDoc } from "firebase/firestore";
 
 function EntryModel(props) {
-  // const [subject, setSubject] = React.useState('');
-  // const [topic, setTopic] = React.useState('');
-  // const [links, setLinks] = React.useState('');
+    // const [revision, setRevision] = React.useState([]);
+  const revisionCollectionRef = collection(db, "revision");
+
+//   const createRivision = async () => {
+//     await addDoc(revisionCollectionRef,{subject: data.subject,topic:data.topic,link:data.links,entryDate: currentDate})
+//   }
+
+//   React.useEffect(() => {
+//     const getRevision = async () => {
+//       const data = await getDocs(revisionCollectionRef);
+//       setRevision(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+//     };
+
+//     getRevision();
+//   }, []);
+
 
   let currentDate = new Date().toISOString().slice(0, 10);
     
@@ -29,7 +44,7 @@ function EntryModel(props) {
     });
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = async(event) =>  {
     event.preventDefault();
     props.setModalOpen(false);
     const entry = {
@@ -38,12 +53,17 @@ function EntryModel(props) {
         links: data.links,
         entryDate: currentDate
     }
+
+    await addDoc(revisionCollectionRef,{subject: entry.subject,topic:entry.topic,link:entry.links,entryDate: currentDate})
+
     console.log(entry);
     setData({
       subject: "",
       topic: "",
       links: "",
     });
+
+    window.location.reload()
   }
   return (
     <div>
