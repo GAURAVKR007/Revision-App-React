@@ -1,0 +1,24 @@
+.app-header {
+    background-color: aqua;
+    padding: 2% 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    padding-left: 25%;
+    flex-wrap: wrap;
+    
+}
+
+.add-icon {
+    margin-right: 15px;
+    justify-content: center;
+    color: lightgreen;
+}
+
+.more-option {
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
