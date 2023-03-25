@@ -11,6 +11,11 @@
 	--white: white;
 }
 
+body {
+    /* overflow: hidden; */
+    height: 100%;
+}
+
 .button {
 	display: inline-block;
 	height: auto;
