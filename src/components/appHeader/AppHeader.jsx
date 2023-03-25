@@ -9,62 +9,16 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import EntryModel from "./EntryModel";
 
-import { db } from "../../firebase-config";
-import { collection,deleteDoc,getDocs,doc} from "firebase/firestore";
+import Verify from "./Verify";
 
 function AppHeader() {
-    const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, "revision");
-
-  React.useEffect(() => {
-    const getRevision = async () => {
-      const data = await getDocs(revisionCollectionRef);
-      setRevision(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
-    getRevision();
-  }, []);
-
-  const deleteUser = async(id) => {
-    const userDoc = doc(db,"revision",id);
-    await deleteDoc(userDoc)
-  }
-
-  const today = new Date()
-  const options = { timeZone: "Asia/Kolkata" };
-const indianDate = new Intl.DateTimeFormat("en-IN", options).format(today);
-
-  const deleteToday = () => {
-    console.log("today : "+indianDate);
     
-    revision.map((rev)=> {
-        console.log(rev.entryDate);
-        if(indianDate == rev.entryDate){
-           
-            const id = rev.id;
-            deleteUser(id)
-        } 
-    })
-
-    setTimeout(()=>{
-        window.location.reload()
-    },700)
-  }
-
-  const deleteAll = () => {
-    revision.map((rev)=> {
-        const id = rev.id;
-        deleteUser(id)
-    })
-
-    setTimeout(()=>{
-        window.location.reload()
-    },700)
-  }
 
   const [age, setAge] = React.useState("");
 
   const [modalOpen, setModalOpen] = React.useState(false);
+
+  const [verifyModal,setVerifyModal] = React.useState([false,0]);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -76,8 +30,9 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(today);
         className="entry-btn"
         style={{
           backgroundColor: "black",
-          marginTop: "20px",
+          marginTop: "12px",
           fontSize: "1.3rem",
+          padding: "10px"
         }}
         variant="contained"
         onClick={() => setModalOpen(true)}
@@ -100,15 +55,16 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(today);
               <em>None</em>
             </MenuItem>
             <MenuItem value={10}>Fetch All Revision</MenuItem>
-            <MenuItem value={20} onClick={deleteAll}>
+            <MenuItem value={20} onClick={() => setVerifyModal([true,2])}>
               Clear All Entries
             </MenuItem>
-            <MenuItem value={30} onClick={deleteToday}>Clear Today Revision Entry</MenuItem>
+            <MenuItem value={30} onClick={() => setVerifyModal([true,1])}>Clear Today Revision Entry</MenuItem>
           </Select>
         </FormControl>
       </Box>
 
       <EntryModel modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <Verify verifyModal={verifyModal} setVerifyModal={setVerifyModal} />
     </div>
   );
 }

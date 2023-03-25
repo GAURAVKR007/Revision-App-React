@@ -65,7 +65,9 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
       links: "",
     });
 
-    window.location.reload()
+    setTimeout(()=>{
+        window.location.reload()
+    },700)
   }
   return (
     <div>
@@ -73,7 +75,7 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
         <div className="wrapper">
           <div className="container">
             <div
-              className="closeButton"
+              className="closeButton cross-btn"
               onClick={() => props.setModalOpen(false)}
               onKeyDown={() => props.setModalOpen(false)}
               tabIndex={0}
@@ -92,6 +94,7 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
                   name="subject"
                   value={data.subject}
                   onChange={handleChange}
+                  required
                 />
               </label>
               <label htmlFor="">
@@ -103,6 +106,7 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
                   name="topic"
                   value={data.topic}
                   onChange={handleChange}
+                  required
                 />
               </label>
               <label htmlFor="">
@@ -117,7 +121,7 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
                 />
               </label>
               <div className="buttonContainer">
-                <button type="submit" className="button">
+                <button type="submit" className="button insert-btn">
                   Insert
                 </button>
 
@@ -126,6 +130,7 @@ const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
                   color="error"
                   type="submit"
                   style={{ fontSize: "1.6rem" }}
+                  className="cancel-btn"
                   onClick={() => {
                     props.setModalOpen(false);
                     setData({

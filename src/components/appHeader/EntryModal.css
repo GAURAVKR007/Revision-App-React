@@ -79,4 +79,18 @@ input {
 	gap: 1rem;
 }
 
+.insert-btn:active {
+	transform: scale(0.95);
+}
 
+.cancel-btn:active {
+	transform: scale(0.95);
+}
+
+.verifybuttonContainer {
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 20px;
+}

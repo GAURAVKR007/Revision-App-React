@@ -10,6 +10,10 @@
     
 }
 
+.entry-btn:active {
+    transform: scale(0.97);
+}
+
 .add-icon {
     margin-right: 15px;
     justify-content: center;
