@@ -11,10 +11,13 @@
 	align-items: center;
 }
 .container {
-	background-color: var(--bg-2);
+	/* background-color: var(--bg-2); */
 	max-width: 500px;
 	width: 90%;
-	background-color: whitesmoke;
+	/* background-color: black;
+	 */
+	 background: rgb(56,56,138);
+background: linear-gradient(315deg, rgba(56,56,138,1) 0%, rgba(60,69,77,1) 10%, rgba(59,59,71,1) 24%, rgba(30,34,34,1) 43%, rgba(67,75,116,1) 66%, rgba(49,57,82,1) 84%, rgba(25,29,41,1) 91%, rgba(47,53,65,1) 94%);
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
@@ -47,7 +50,7 @@
 }
 
 .formTitle {
-	color: var(--black-1);
+	color: white;
 	font-size: 2rem;
 	font-weight: 600;
 	margin-bottom: 2rem;
@@ -59,7 +62,7 @@
 
 label {
 	font-size: 1.4rem;
-	color: var(--black-1);
+	color: white;
 	
 }
 input {
