@@ -18,12 +18,15 @@ function Hero(props) {
   }, []);
 
 //   const today = new Date().toISOString().slice(0, 10);
-  
+const options = { timeZone: "Asia/Kolkata" };
+ 
+
   function getDaysAgo(daysAgo) {
     const today = new Date();
     const millisecondsPerDay = 86400000;
     const daysAgoDate = new Date(today - daysAgo * millisecondsPerDay);
-    return daysAgoDate.toISOString().slice(0, 10);;
+    const indianDate = new Intl.DateTimeFormat("en-IN", options).format(daysAgoDate); 
+    return indianDate;
   }
 
   const arr = [3,7,15,30,45,60];

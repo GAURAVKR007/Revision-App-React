@@ -24,7 +24,9 @@ function EntryModel(props) {
 //   }, []);
 
 
-  let currentDate = new Date().toISOString().slice(0, 10);
+const date = new Date(); // create a new Date object with the current date and time
+const options = { timeZone: "Asia/Kolkata" };
+const indianDate = new Intl.DateTimeFormat("en-IN", options).format(date);
     
 
   const [data, setData] = React.useState({
@@ -51,10 +53,10 @@ function EntryModel(props) {
         subject: data.subject,
         topic: data.topic,
         links: data.links,
-        entryDate: currentDate
+        entryDate: indianDate
     }
 
-    await addDoc(revisionCollectionRef,{subject: entry.subject,topic:entry.topic,link:entry.links,entryDate: currentDate})
+    await addDoc(revisionCollectionRef,{subject: entry.subject,topic:entry.topic,link:entry.links,entryDate: indianDate})
 
     console.log(entry);
     setData({
@@ -86,6 +88,7 @@ function EntryModel(props) {
                 <input
                   type="text"
                   id="subject"
+                  autocomplete="off"
                   name="subject"
                   value={data.subject}
                   onChange={handleChange}
@@ -96,6 +99,7 @@ function EntryModel(props) {
                 <input
                   type="text"
                   id="topic"
+                  autocomplete="off"
                   name="topic"
                   value={data.topic}
                   onChange={handleChange}
@@ -106,6 +110,7 @@ function EntryModel(props) {
                 <input
                   type="text"
                   name="links"
+                  autocomplete="off"
                   id="links"
                   value={data.links}
                   onChange={handleChange}

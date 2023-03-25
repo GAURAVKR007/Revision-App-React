@@ -30,14 +30,16 @@ function AppHeader() {
     await deleteDoc(userDoc)
   }
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Date()
+  const options = { timeZone: "Asia/Kolkata" };
+const indianDate = new Intl.DateTimeFormat("en-IN", options).format(today);
 
   const deleteToday = () => {
-    console.log("today : "+today);
+    console.log("today : "+indianDate);
     
     revision.map((rev)=> {
         console.log(rev.entryDate);
-        if(today == rev.entryDate){
+        if(indianDate == rev.entryDate){
            
             const id = rev.id;
             deleteUser(id)
@@ -55,7 +57,9 @@ function AppHeader() {
         deleteUser(id)
     })
 
-    window.location.reload()
+    setTimeout(()=>{
+        window.location.reload()
+    },700)
   }
 
   const [age, setAge] = React.useState("");
