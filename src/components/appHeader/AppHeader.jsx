@@ -12,7 +12,7 @@ import EntryModel from "./EntryModel";
 function AppHeader() {
   const [age, setAge] = React.useState("");
 
-  const [modalOpen,setModalOpen] = React.useState(true);
+  const [modalOpen,setModalOpen] = React.useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);
