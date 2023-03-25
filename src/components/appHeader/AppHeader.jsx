@@ -43,7 +43,7 @@ function AppHeader() {
 
       <Box sx={{ maxWidth: 270 }} className="more-option">
         <FormControl style={{border : "2px solid white",backgroundColor:"white"}} fullWidth className="form">
-          <InputLabel id="demo-simple-select-label">More Options</InputLabel>
+          <InputLabel id="demo-simple-select-label" style={{fontWeight: "bold"}}>More Options</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
