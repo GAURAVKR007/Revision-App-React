@@ -1,4 +1,5 @@
 // import React from 'react'
+import './navbar.css'
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -9,7 +10,30 @@ import Typography from '@mui/material/Typography';
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../../firebase-config";
+import { useNavigate } from "react-router-dom";
+
 function Navbar(args) {
+
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    await signOut(auth);
+    console.log(auth.currentUser);
+    navigate('/')
+  };
+
+
+
+
+
+
     return (
       <div>
     <Box sx={{ flexGrow: 1 }} >
@@ -21,6 +45,10 @@ function Navbar(args) {
         </Toolbar>
       </AppBar>
     </Box>
+
+    <button onClick={logout} className='logout-btn'><span className="material-symbols-outlined logout-symbol">
+logout
+</span> LogOut </button>
     </div>
   );
 

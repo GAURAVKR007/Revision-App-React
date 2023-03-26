@@ -185,8 +185,7 @@ function Auth() {
                 required
               />
               <button type="submit"> Login </button>
-
-              <h4> User Logged In: {user}</h4>
+              
             </form>
           </div>
         </div>
