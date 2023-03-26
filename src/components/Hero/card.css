@@ -29,6 +29,10 @@
     color: whitesmoke;
     /* margin-top: 4px; */
   }
+
+  .card-link{
+    color: #007bff;
+  }
   
   .card-body {
     display: flex;

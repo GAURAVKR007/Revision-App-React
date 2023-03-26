@@ -13,7 +13,7 @@ const Card = ({subject, topic, link, notes, lastRevisioned, date}) => {
         </div>
         <div className="card-row">
           <p>Link/Notes :</p>
-          <p>{link ? <a href={link} target="_blank" rel="noopener noreferrer">{link}</a> : notes}</p>
+          <p className='card-link'>{link}</p>
         </div>
         <div className="card-row">
           <p>Last Revisioned :</p>
