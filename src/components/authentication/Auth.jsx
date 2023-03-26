@@ -157,6 +157,7 @@ function Auth() {
               value={authData.registerPassword}
               name="registerPassword"
               onChange={handleAuthChange}
+              type="password"
               required
             />
 
@@ -180,6 +181,7 @@ function Auth() {
                 name="loginPassword"
                 value={loginData.loginPassword}
                 onChange={handleLoginChange}
+                type="password"
                 required
               />
               <button type="submit"> Login </button>
