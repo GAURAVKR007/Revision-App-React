@@ -133,12 +133,7 @@ function Authentication() {
 
         <button onClick={login}> Login</button>
       </div>
-        <h1>{
-
-           
-            user
-            
-            }</h1>
+        <h1>{user}</h1>
       <h4> User Logged In: </h4>
       <button onClick={logout}> Sign Out </button>
     </div>

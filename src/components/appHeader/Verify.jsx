@@ -11,7 +11,7 @@ import { collection,deleteDoc,getDocs,doc} from "firebase/firestore";
 function Verify(props) {
 
     const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, "Gaurav");
+  const revisionCollectionRef = collection(db, localStorage.getItem("username"));
 
   React.useEffect(() => {
     const getRevision = async () => {
@@ -23,7 +23,7 @@ function Verify(props) {
   }, []);
 
   const deleteUser = async(id) => {
-    const userDoc = doc(db,"revision",id);
+    const userDoc = doc(db,localStorage.getItem("username"),id);
     await deleteDoc(userDoc)
   }
 

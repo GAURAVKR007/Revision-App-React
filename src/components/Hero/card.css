@@ -52,4 +52,27 @@
     color: #007bff;
     text-decoration: none;
   }
+
+  @media only screen and (max-width: 1200px) {
+    .card {
+      width: 70%;
+    }
+  }
   
+  @media only screen and (max-width: 768px) {
+    .card {
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 408px) {
+    .card {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 653px) {
+    .card {
+      margin-top: 1%;
+    }
+  }

@@ -6,7 +6,7 @@ import { collection, getDocs} from "firebase/firestore";
 
 function Hero(props) {
   const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, "revision");
+  const revisionCollectionRef = collection(db, localStorage.getItem("username"));
 
   React.useEffect(() => {
     const getRevision = async () => {

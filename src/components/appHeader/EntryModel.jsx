@@ -8,7 +8,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 function EntryModel(props) {
     // const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, "revision");
+  const revisionCollectionRef = collection(db, localStorage.getItem("username"));
 
 //   const createRivision = async () => {
 //     await addDoc(revisionCollectionRef,{subject: data.subject,topic:data.topic,link:data.links,entryDate: currentDate})
