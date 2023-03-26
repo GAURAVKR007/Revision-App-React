@@ -56,7 +56,7 @@ function Auth() {
       }, 700);
 
     //   if(authenticated){
-        navigate('/home')
+       navigate("/home")
     //   }
 
       
@@ -185,7 +185,7 @@ function Auth() {
                 required
               />
               <button type="submit"> Login </button>
-              
+
             </form>
           </div>
         </div>

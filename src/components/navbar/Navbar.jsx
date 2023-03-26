@@ -26,7 +26,9 @@ function Navbar(args) {
   const logout = async () => {
     await signOut(auth);
     console.log(auth.currentUser);
-    navigate('/')
+    localStorage.setItem('login',false)
+    localStorage.setItem('username',"")
+    navigate("/")
   };
 
 
