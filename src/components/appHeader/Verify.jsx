@@ -11,7 +11,7 @@ import { collection,deleteDoc,getDocs,doc} from "firebase/firestore";
 function Verify(props) {
 
     const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, "revision");
+  const revisionCollectionRef = collection(db, "Gaurav");
 
   React.useEffect(() => {
     const getRevision = async () => {
