@@ -2,11 +2,14 @@ import React from "react";
 import Card from "./Card";
 import "./hero.css";
 import { db } from "../../firebase-config";
-import { collection, getDocs} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 function Hero(props) {
   const [revision, setRevision] = React.useState([]);
-  const revisionCollectionRef = collection(db, localStorage.getItem("username"));
+  const revisionCollectionRef = collection(
+    db,
+    localStorage.getItem("username")
+  );
 
   React.useEffect(() => {
     const getRevision = async () => {
@@ -17,78 +20,85 @@ function Hero(props) {
     getRevision();
   }, []);
 
-//   const today = new Date().toISOString().slice(0, 10);
-const options = { timeZone: "Asia/Kolkata" };
- 
+  //   const today = new Date().toISOString().slice(0, 10);
+  const options = { timeZone: "Asia/Kolkata" };
 
   function getDaysAgo(daysAgo) {
     const today = new Date();
     const millisecondsPerDay = 86400000;
     const daysAgoDate = new Date(today - daysAgo * millisecondsPerDay);
-    const indianDate = new Intl.DateTimeFormat("en-IN", options).format(daysAgoDate); 
+    const indianDate = new Intl.DateTimeFormat("en-IN", options).format(
+      daysAgoDate
+    );
     return indianDate;
   }
 
-  const arr = [3,7,15,30,45,60];
+  const arr = [0, 3, 7, 15, 30, 45, 60];
   var dates = [];
   function data(arr) {
     arr.map((data) => {
-        dates.push(getDaysAgo(data));
-    })
+      dates.push(getDaysAgo(data));
+    });
   }
 
-  data(arr)
+  data(arr);
 
   var flag = false;
-  var lastRevisioned = ''
+  var lastRevisioned = "";
 
   function checkDate(date) {
-    for(let i=0;i<dates.length;i++){
-        if(dates[i] === date){
-            flag = true;
-            switch(i) {
-                case 0 : lastRevisioned = '3 days Ago'
-                break;
-                case 1 : lastRevisioned = '4 days Ago'
-                break;
-                case 2 : lastRevisioned = '8 days Ago'
-                break;
-                case 3 : lastRevisioned = '15 days Ago'
-                break;
-                case 4 : lastRevisioned = '15 days Ago'
-                break;
-                case 5 : lastRevisioned = '15 days Ago'
-                break;
-                default : console.log("Invalid");
-            }
+    for (let i = 0; i < dates.length; i++) {
+      if (dates[i] === date) {
+        flag = true;
+        switch (i) {
+          case 0:
+            lastRevisioned = "Today";
+            break;
+          case 1:
+            lastRevisioned = "3 days Ago";
+            break;
+          case 2:
+            lastRevisioned = "4 days Ago";
+            break;
+          case 3:
+            lastRevisioned = "8 days Ago";
+            break;
+          case 4:
+            lastRevisioned = "15 days Ago";
+            break;
+          case 5:
+            lastRevisioned = "15 days Ago";
+            break;
+          case 6:
+            lastRevisioned = "15 days Ago";
+            break;
+          default:
+            console.log("Invalid");
         }
+      }
     }
   }
-
-
 
   return (
     <div className="hero">
       {revision.map((rev) => {
-
         checkDate(rev.entryDate);
 
-        if(flag) {
-            return (
+        if (flag) {
+          return (
             <div>
-            {" "}
-          <Card
-            subject={rev.subject}
-            topic={rev.topic}
-            link={rev.link}
-            date={rev.entryDate}
-            lastRevisioned={lastRevisioned}
-          />
-
-          {flag = false}
-          {lastRevisioned = ''}
-          </div>
-        );
+              {" "}
+              <Card
+                subject={rev.subject}
+                topic={rev.topic}
+                link={rev.link}
+                date={rev.entryDate}
+                lastRevisioned={lastRevisioned}
+              />
+              {(flag = false)}
+              {(lastRevisioned = "")}
+            </div>
+          );
         }
       })}
     </div>
